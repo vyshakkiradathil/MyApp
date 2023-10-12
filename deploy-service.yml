@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: 
+        image: vaishakhkiradathil/helloworld-app:6498694703
         resources:
           limits:
             memory: "128Mi"
