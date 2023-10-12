@@ -4,6 +4,6 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("MY Application V1");
+        Console.WriteLine("MY Application V2");
     }
 }
