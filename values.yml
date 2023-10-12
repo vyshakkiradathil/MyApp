@@ -2,7 +2,7 @@ name: <+stage.variables.name>
 replicas: 2  
   
 image: <+artifacts.primary.image>  
-dockercfg: <+artifacts.primary.imagePullSecret>  
+# dockercfg: <+artifacts.primary.imagePullSecret>  
   
 createNamespace: true  
 namespace: <+infra.namespace>  
