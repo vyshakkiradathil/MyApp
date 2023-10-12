@@ -21,5 +21,5 @@ jobs:
       run: |
         docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD gitopsdemo2023.azurecr.io
         docker build -t helloworld-app:${{ env.IMAGE_TAG }} .
-        docker tag helloworld-app:latest gitopsdemo2023.azurecr.io/helloworld-app:${{ env.IMAGE_TAG }}
+        docker tag helloworld-app:${{ env.IMAGE_TAG }} gitopsdemo2023.azurecr.io/helloworld-app:${{ env.IMAGE_TAG }}
         docker push gitopsdemo2023.azurecr.io/helloworld-app:${{ env.IMAGE_TAG }}
