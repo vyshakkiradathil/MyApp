@@ -1,9 +1,6 @@
-using System;
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
 
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine("MY Application V3");
-    }
-}
+app.MapGet("/", () => "WELOCOME TO MY APP V1!");
+
+app.Run();
