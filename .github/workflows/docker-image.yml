@@ -1,0 +1,24 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build and push Docker image
+      env:
+        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      run: |
+        docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD gitopsdemo2023.azurecr.io
+        docker build -t helloworld-app:latest .
+        docker tag helloworld-app:latest $DOCKERHUB_USERNAME/helloworld-app:latest
+        docker push $DOCKERHUB_USERNAME/helloworld-app:latest
