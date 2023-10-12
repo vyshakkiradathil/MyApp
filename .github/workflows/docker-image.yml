@@ -21,5 +21,5 @@ jobs:
       run: |
         docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
         docker build -t helloworld-app:${{ env.IMAGE_TAG }} .
-        docker tag helloworld-app:${{ env.IMAGE_TAG }} helloworld-app:${{ env.IMAGE_TAG }}
+        # docker tag helloworld-app:${{ env.IMAGE_TAG }} helloworld-app:${{ env.IMAGE_TAG }}
         docker push helloworld-app:${{ env.IMAGE_TAG }}
