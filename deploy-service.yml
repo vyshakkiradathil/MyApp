@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: myapp1
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: myapp1
   template:
     metadata:
       labels:
-        app: myapp
+        app: myapp1
     spec:
       containers:
-      - name: myapp
+      - name: myapp1
         image: <+artifacts.primary.image> 
         resources:
           limits:
@@ -20,3 +20,17 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp1-svc
+spec:
+  selector:
+    app: myapp1
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
+        
