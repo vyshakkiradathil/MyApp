@@ -20,5 +20,5 @@ jobs:
       run: |
         docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD gitopsdemo2023.azurecr.io
         docker build -t helloworld-app:latest .
-        docker tag helloworld-app:latest $DOCKERHUB_USERNAME/helloworld-app:latest
-        docker push $DOCKERHUB_USERNAME/helloworld-app:latest
+        docker tag helloworld-app:latest gitopsdemo2023.azurecr.io/helloworld-app:latest
+        docker push gitopsdemo2023.azurecr.io/helloworld-app:latest
